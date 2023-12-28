@@ -119,23 +119,39 @@ void PlayCellMenu()
         oled.line(oled.getLCDWidth() / 2, DISPLAY_MIDDLE_Y_HALF, oled.getLCDWidth() / 2, oled.getLCDHeight());
         oled.line(0, DISPLAY_MIDDLE_Y_HALF + 10, oled.getLCDWidth(), DISPLAY_MIDDLE_Y_HALF + 10);
 
+        char buffer[10]; // Buffer to hold the float converted to string
+        // Convert amortizedB1Voltage to a string with 2 decimal places
+        dtostrf(amortizedB1Voltage, 4, 2, buffer);
+        String b1VoltageStr = String(buffer);
+
+        // Convert amortizedB2Voltage to a string with 2 decimal places
+        dtostrf(amortizedB2Voltage, 4, 2, buffer);
+        String b2VoltageStr = String(buffer);
+
+        dtostrf(amortizedB1Temperature, 4, 2, buffer);
+        String b1TempStr = String(buffer);
+
+        // Convert amortizedB2Voltage to a string with 2 decimal places
+        dtostrf(amortizedB2Temperature, 4, 2, buffer);
+        String b2TempStr = String(buffer);
+
         // Battery 1 values
         int Loffset = 0;
         oled.setCursor(Loffset, DISPLAY_MIDDLE_Y - 12);
         oled.print("Batt1");
         oled.setCursor(Loffset, DISPLAY_MIDDLE_Y + 2);
-        oled.print("3.7V");
+        oled.print(b1VoltageStr); // Print the formatted string
         oled.setCursor(Loffset, DISPLAY_MIDDLE_Y + 12);
-        oled.print("25C");
+        oled.print(b1TempStr);
 
         // Battery 2 values
         int Roffset = oled.getLCDWidth() - 29;
         oled.setCursor(Roffset, DISPLAY_MIDDLE_Y - 12);
         oled.print("Batt2");
         oled.setCursor(Roffset, DISPLAY_MIDDLE_Y + 2);
-        oled.print("3.7V");
+        oled.print(b2VoltageStr); // Print the formatted string
         oled.setCursor(Roffset, DISPLAY_MIDDLE_Y + 12);
-        oled.print("25C");
+        oled.print(b2TempStr);
 
         // Render to screen
         oled.display();

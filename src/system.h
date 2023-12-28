@@ -20,8 +20,17 @@ extern const int TOTAL_MENUS;
 extern bool menuStateChanged;
 extern int menuState;
 
+// BMS
+extern float amortizedB1Voltage;
+extern float amortizedB2Voltage;
+
+extern float amortizedB1Temperature;
+extern float amortizedB2Temperature;
+
 // --- Core Tasks ---
 void RunMenu();
 void RunBMS();
+
+void PlayMainMenu();
 
 #endif // ALLEGROOS_SYSTEM_H
