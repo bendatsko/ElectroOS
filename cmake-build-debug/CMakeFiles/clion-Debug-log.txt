@@ -1,1 +1,0 @@
-CMakeLists.txt not found in C:\Users\bldat\Documents\GitHub\ElectroOS Select CMakeLists.txt
