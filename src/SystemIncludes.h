@@ -9,11 +9,12 @@
 #define BUTTON_LEFT 2
 // 5V USB boost converter + relay
 #define BOOST_CONVERTER_ENABLE 3
-#define BISEL 5 // Do not modify.
+#define BOOST_CONVERTER_ISEL 5 // Do not modify.
 #define RELAY_ENABLE 16
 // Discharge n-fet gates
 #define B1_DISCHARGE_ENABLE 14
 #define B2_DISCHARGE_ENABLE 15
+#define OUTPUT_ENABLE 999 // 1 = provide output, 0 = no output
 // Analog input ports
 #define B1_VOLTAGE 9
 #define B2_VOLTAGE 6

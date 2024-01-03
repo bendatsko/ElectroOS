@@ -58,8 +58,8 @@ void RunBMS()
 
 void UpdateSensorData()
 {
-    float B1Voltage = 1.04 * (analogRead(9) / 1024.0) * 5.0;
-    float TotalVoltage = 2 * (analogRead(6) / 1024.0) * 5.0;
+    float B1Voltage = 1.04 * (analogRead(B1_VOLTAGE) / 1024.0) * 5.0;
+    float TotalVoltage = 2 * (analogRead(B2_VOLTAGE) / 1024.0) * 5.0;
     float B2Voltage = TotalVoltage - B1Voltage;
     PushToQueue(B1VoltageQueue, B1Voltage);
     PushToQueue(B2VoltageQueue, B2Voltage);

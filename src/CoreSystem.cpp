@@ -27,6 +27,8 @@ void loop()
 
     RunBMS();
     MenuRunner();
+
+    Serial.println((analogRead(CURRENT_IN) / 1024.0) * 5.0);
 }
 
 void InitializeHardware()
@@ -40,7 +42,7 @@ void InitializeHardware()
     pinMode(BUTTON_RIGHT, INPUT_PULLUP);
     pinMode(BUTTON_LEFT, INPUT_PULLUP);
     pinMode(BOOST_CONVERTER_ENABLE, OUTPUT);
-    pinMode(BISEL, OUTPUT); // Do not modify.
+    pinMode(BOOST_CONVERTER_ISEL, OUTPUT); // Do not modify.
     pinMode(RELAY_ENABLE, OUTPUT);
     pinMode(B1_DISCHARGE_ENABLE, OUTPUT);
     pinMode(B1_DISCHARGE_ENABLE, OUTPUT);
@@ -52,7 +54,7 @@ void InitializeHardware()
 
     // 3. Set initial state
     digitalWrite(BOOST_CONVERTER_ENABLE, HIGH); // High = on
-    digitalWrite(BISEL, HIGH);                  // Do not modify.
+    digitalWrite(BOOST_CONVERTER_ISEL, HIGH);   // Do not modify.
     digitalWrite(RELAY_ENABLE, LOW);            // Low = Off (use N.O.)
     digitalWrite(B1_DISCHARGE_ENABLE, LOW);     // Low = dont discharge
     digitalWrite(B1_DISCHARGE_ENABLE, LOW);     // Low = dont discharge
