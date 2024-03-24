@@ -58,13 +58,16 @@ void InitializeHardware()
     // 3. Set initial state
     digitalWrite(BOOST_CONVERTER_ENABLE, HIGH); // High = on
     digitalWrite(BOOST_CONVERTER_ISEL, HIGH);   // Do not modify.
-    digitalWrite(RELAY_ENABLE, HIGH);            // Low = Off (use N.O.)
+    digitalWrite(RELAY_ENABLE, HIGH);           // Low = Off (use N.O.)
     digitalWrite(B1_DISCHARGE_ENABLE, LOW);     // Low = dont discharge
     digitalWrite(B1_DISCHARGE_ENABLE, LOW);     // Low = dont discharge
-    digitalWrite(MCU_OFF, LOW);     // Low = dont discharge
-    digitalWrite(OUTPUT_ENABLE, HIGH); // High = on
-
+    digitalWrite(MCU_OFF, LOW);                 // Low = dont discharge
+    digitalWrite(OUTPUT_ENABLE, HIGH);          // High = on
 }
+
+// To prevent the display I2C from interfering with the display I2C, only turn on wire begin if there is a need to update the screen.
+// Do overcurrent protection and undercurrent protection etc, but don't display this information on the screen. Only turn the wire on or off
+// on button presses aka when screens toggle.
 
 void InitializeDisplay()
 {
